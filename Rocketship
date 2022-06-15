@@ -1,0 +1,53 @@
+public class AsciiArt {   //This program will draw a simple shield.
+    
+    public static void main(String[] args) {   //This is calling out the shield.
+        printShield();
+    }
+    
+    public static void printShield() {   //These are the actual Steps used to create the 4 parts of the shield.
+        printTop();
+        printLeftRightSide();
+        printV();
+        printBottom();
+        
+    }
+    
+    public static void printTop() {   //This is the method used to print the top.
+        System.out.println("-----------------------------------------");
+    
+    }    
+    
+    public static void printLeftRightSide() {   //This is the method used to print the straight sides of the shield
+        System.out.println("|                                       |");
+        System.out.println("|                                       |");
+        System.out.println("|                                       |");
+        System.out.println("|                                       |");
+        System.out.println("|                                       |");
+        System.out.println("|                                       |");
+        System.out.println("|                                       |");
+        System.out.println("|                                       |");
+        System.out.println("|                                       |");
+        System.out.println("|                                       |");
+    }
+        
+    public static void printV() {     //This is the method used to print the V shape towards the bottom of the shield
+        System.out.println(" x                                     x ");
+        System.out.println("  x                                   x  ");
+        System.out.println("   x                                 x   ");
+        System.out.println("    x                               x    ");
+        System.out.println("     x                             x     ");
+        System.out.println("      x                           x      ");
+        System.out.println("       x                         x       ");
+        System.out.println("        x                       x        ");
+        System.out.println("         x                     x         ");
+        System.out.println("          x                   x          ");
+        System.out.println("           x                 x           ");
+        System.out.println("            x               x            ");
+        System.out.println("             x             x             ");
+    }
+    
+    public static void printBottom() {    //This is the method used to print the bottom of the shield.
+         System.out.println("              -------------              ");
+    }
+    
+}   
