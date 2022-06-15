@@ -1,0 +1,97 @@
+public class PhoneBookNode
+{
+    public String city;
+    public String index;
+    public String phonenumber;
+    public PhoneBookNode next;
+    public PhoneBookNode front;
+    public String firstname;
+    public String lastname;
+    public String fullName;
+
+    //creates a new empty node
+    public void PhoneBooknode()
+    {
+
+        front = null;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.fullName = fullName;
+        this.city = city;
+        this.phonenumber = phonenumber;
+        this.index = index;
+        this.next = next;
+
+
+    }
+    //creates node to store field information with no new node created
+    public PhoneBookNode(String firstname, String lastname, String fullName,
+                         String city, String phonenumber)
+    {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.fullName = fullName;
+        this.city = city;
+        this.phonenumber = phonenumber;
+        this.index = index;
+        this.next = next;
+
+    }
+
+    //creates node to store field information and create a next node
+    public PhoneBookNode(String firstname, String lastname, String fullName,
+                         String city, String phonenumber, PhoneBookNode next)
+    {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.fullName = fullName;
+        this.city = city;
+        this.phonenumber = phonenumber;
+        this.index = index;
+        this.next = next;
+    }
+    public void addmidend(String firstname, String lastname, String fullName,
+                          String city, String number)
+    {
+
+        //front = null;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.fullName = fullName;
+        this.city = city;
+        this.phonenumber = number;
+        this.index = index;
+        this.next = next;
+
+        if (front == null)
+        {
+
+            front = new PhoneBookNode(firstname, lastname, fullName, city,
+                    number, next);
+
+        }
+        else
+        {
+
+            PhoneBookNode current = front;
+
+            while(current.next != null)
+            {
+                current = current.next;
+            }
+
+            current.next = new PhoneBookNode(firstname, lastname,
+                    fullName, city, number, next);
+        }
+
+    }
+
+    public String toString()
+    {
+
+        String fullName = firstname +" "+ lastname;
+        return "\n\nIndex Location:" + index + "\n" + "Full name: " +
+                fullName +"\n" + "City: " + city + "\n" + "Phone Number: " + phonenumber +
+                "\n\n";
+    }
+
