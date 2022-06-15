@@ -1,0 +1,119 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class GuessingGame  { // This class will create a guessing game that takes and reads user input
+    public static void main(String[] args) { // start of main method intro
+
+        Scanner console = new Scanner(System.in);
+        int totalGames = 0;
+
+        int totalGuesses= 0;
+
+        int bestGame = 1000;
+
+        char answer;
+
+        System.out.print("Do you want to play the guessing game? ");
+        answer = console.next().toLowerCase().charAt(0);
+
+        while(answer == 'y') {
+
+            gameRules();
+
+            int numberOfTries = game();
+
+            totalGuesses = totalGuesses + numberOfTries;
+
+            totalGames++;
+            if (bestGame > numberOfTries){
+
+                bestGame = numberOfTries;
+
+            }
+
+            System.out.print("Do you want to play again? ");
+            answer = console.next().toLowerCase().charAt(0);
+
+            System.out.println();
+
+            if (answer == 'n') {
+
+                results(bestGame, totalGames, totalGuesses);
+
+            }
+
+        } // end while loop
+
+    } // end main
+    public static void gameRules() { // states the  of rules of the game
+        System.out.println();
+        System.out.println("This program allows you to play a guessing game.");
+        System.out.println("I will think of a number between 1 and");
+        System.out.println("100 and will allow you to guess until");
+        System.out.println("you get it. For each guess, I will tell you");
+        System.out.println("whether the right answer is higher or lower");
+        System.out.println("than your guess. \n");
+    } // end rules
+    public static int game() { // plays a game with the user
+
+        Random r = new Random();
+
+        Scanner console = new Scanner(System.in);
+
+        int value; // the number you are trying to guess
+
+        int guess; // your guess
+
+
+        int numberOfTries = 0; // increase by the number of your guesses
+
+        System.out.println("I am thinking of a number between 1 and 100... \n");
+
+        value = r.nextInt(100) + 1;
+
+
+        guess = 0;
+
+        while (guess != value) {
+
+            System.out.print("Your guess? ");
+
+            guess = console.nextInt();
+
+            numberOfTries++;
+
+            if (guess < 1 || guess > 100) {
+
+                System.out.println("inonvalid input");
+
+            } else if (guess > value) {
+
+                System.out.println("It's lower.");
+
+            } else if (guess < value) {
+
+                System.out.println("It's higher.");
+
+            }// end if loop
+
+        } // end while loop
+
+        System.out.println("You got it right in " + numberOfTries + " guesses \n");
+
+        return numberOfTries;
+
+    } // end of game
+
+
+    public static void results(int bestGame, int totalGames, int totalGuesses) { // shows the results
+
+        System.out.println("Overall results:");
+
+        System.out.println(" total games = " + totalGames);
+        System.out.println(" total guesses = " + totalGuesses);
+
+        System.out.printf("%s%.1f%n"," guesses/game = " , (double) totalGuesses / totalGames);
+
+        System.out.println(" best game = " + bestGame);
+
+    }
